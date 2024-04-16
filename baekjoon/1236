@@ -1,0 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(){
+    int N, M;
+    int s, m;
+    scanf("%d", &N);
+    scanf("%d", &M);
+    s=N;
+    m=M;
+    char squre[N][M];
+    if(N>50 || N<1){
+        return 0;   
+    }
+    else if(M>50 || M<1){
+       return 0; 
+    }
+    
+    for(int i = 0; i<N; i++){
+            scanf("%s", squre[i]);
+    }
+    
+    for(int i = 0; i<N; i++){
+        for(int ii=0; ii<M; ii++){
+            if(squre[i][ii]=='X'){
+                s--;
+                break;
+            }
+        }
+    }
+    for(int i = 0; i<M; i++){
+        for(int ii=0; ii<N; ii++){
+            if(squre[ii][i]=='X'){
+                m--;
+                break;
+            }
+        }
+    }
+    if(m>s){
+        printf("%d",m);
+    }
+    else{
+        printf("%d", s);
+    }
+}
